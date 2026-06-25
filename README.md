@@ -190,9 +190,4 @@ Supported parameters: `status`, `source`, `counselorId`, `course`, `city`, `keyw
 - Lead Conversion Analytics with time-series data
 
 
----
-
-## 👨‍💻 Author
-
-**Hemanth**  
-Final Product Development Assignment — Lead Management & Counseling CRM
+--
