@@ -1,0 +1,241 @@
+{
+  "info": {
+    "name": "Lead Management CRM API",
+    "_postman_id": "lead-crm-collection-v1",
+    "description": "API Documentation for Lead Management & Counseling CRM\nBase URL: http://localhost:8080",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Counselors",
+      "item": [
+        {
+          "name": "Create Counselor",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/api/counselors", "host": ["{{baseUrl}}"], "path": ["api", "counselors"]},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Priya Sharma\",\n  \"email\": \"priya.sharma@educrm.com\",\n  \"phone\": \"9876543210\",\n  \"department\": \"Engineering\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Counselors",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/api/counselors", "host": ["{{baseUrl}}"], "path": ["api", "counselors"]}
+          }
+        },
+        {
+          "name": "Get Active Counselors",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/api/counselors/active", "host": ["{{baseUrl}}"], "path": ["api", "counselors", "active"]}
+          }
+        },
+        {
+          "name": "Get Counselor By ID",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/api/counselors/1", "host": ["{{baseUrl}}"], "path": ["api", "counselors", "1"]}
+          }
+        },
+        {
+          "name": "Update Counselor",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/api/counselors/1", "host": ["{{baseUrl}}"], "path": ["api", "counselors", "1"]},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Priya Sharma Updated\",\n  \"email\": \"priya.sharma@educrm.com\",\n  \"phone\": \"9876543210\",\n  \"department\": \"Engineering & Management\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Toggle Counselor Active Status",
+          "request": {
+            "method": "PATCH",
+            "url": {"raw": "{{baseUrl}}/api/counselors/1/toggle-status", "host": ["{{baseUrl}}"], "path": ["api", "counselors", "1", "toggle-status"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Leads",
+      "item": [
+        {
+          "name": "Create Lead",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/api/leads", "host": ["{{baseUrl}}"], "path": ["api", "leads"]},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Arjun Kumar\",\n  \"email\": \"arjun.kumar@gmail.com\",\n  \"phone\": \"9000000001\",\n  \"course\": \"B.Tech CSE\",\n  \"city\": \"Bengaluru\",\n  \"status\": \"NEW\",\n  \"source\": \"WEBSITE\",\n  \"counselorId\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Get All Leads",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/api/leads", "host": ["{{baseUrl}}"], "path": ["api", "leads"]}
+          }
+        },
+        {
+          "name": "Get Lead By ID",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/api/leads/1", "host": ["{{baseUrl}}"], "path": ["api", "leads", "1"]}
+          }
+        },
+        {
+          "name": "Update Lead",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/api/leads/1", "host": ["{{baseUrl}}"], "path": ["api", "leads", "1"]},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Arjun Kumar\",\n  \"email\": \"arjun.kumar@gmail.com\",\n  \"phone\": \"9000000001\",\n  \"course\": \"B.Tech CSE\",\n  \"city\": \"Bengaluru\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update Lead Status",
+          "request": {
+            "method": "PATCH",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/api/leads/1/status", "host": ["{{baseUrl}}"], "path": ["api", "leads", "1", "status"]},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"CONTACTED\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Assign Lead to Counselor",
+          "request": {
+            "method": "PATCH",
+            "url": {"raw": "{{baseUrl}}/api/leads/1/assign/2", "host": ["{{baseUrl}}"], "path": ["api", "leads", "1", "assign", "2"]}
+          }
+        },
+        {
+          "name": "Schedule Follow-Up",
+          "request": {
+            "method": "PATCH",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/api/leads/1/follow-up", "host": ["{{baseUrl}}"], "path": ["api", "leads", "1", "follow-up"]},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"followUpTime\": \"2026-07-01T10:00:00\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Search & Filter Leads",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/leads/search?status=NEW&source=WEBSITE&city=Bengaluru&keyword=arjun",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "leads", "search"],
+              "query": [
+                {"key": "status", "value": "NEW"},
+                {"key": "source", "value": "WEBSITE"},
+                {"key": "city", "value": "Bengaluru"},
+                {"key": "keyword", "value": "arjun"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Leads By Status",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/api/leads/status/NEW", "host": ["{{baseUrl}}"], "path": ["api", "leads", "status", "NEW"]}
+          }
+        },
+        {
+          "name": "Get Leads By Counselor",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/api/leads/counselor/1", "host": ["{{baseUrl}}"], "path": ["api", "leads", "counselor", "1"]}
+          }
+        },
+        {
+          "name": "Delete Lead",
+          "request": {
+            "method": "DELETE",
+            "url": {"raw": "{{baseUrl}}/api/leads/1", "host": ["{{baseUrl}}"], "path": ["api", "leads", "1"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Call Notes",
+      "item": [
+        {
+          "name": "Add Call Note",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "url": {"raw": "{{baseUrl}}/api/call-notes", "host": ["{{baseUrl}}"], "path": ["api", "call-notes"]},
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"leadId\": 1,\n  \"counselorId\": 1,\n  \"note\": \"Called Arjun. Very interested in B.Tech CSE program. Needs brochure and fee details.\",\n  \"callDurationMinutes\": 12,\n  \"calledAt\": \"2026-06-25T10:30:00\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Call Notes By Lead",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/api/call-notes/lead/1", "host": ["{{baseUrl}}"], "path": ["api", "call-notes", "lead", "1"]}
+          }
+        },
+        {
+          "name": "Get Call Notes By Counselor",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/api/call-notes/counselor/1", "host": ["{{baseUrl}}"], "path": ["api", "call-notes", "counselor", "1"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Lead History",
+      "item": [
+        {
+          "name": "Get Lead History",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/api/lead-history/lead/1", "host": ["{{baseUrl}}"], "path": ["api", "lead-history", "lead", "1"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Get Dashboard Stats",
+          "request": {
+            "method": "GET",
+            "url": {"raw": "{{baseUrl}}/api/dashboard", "host": ["{{baseUrl}}"], "path": ["api", "dashboard"]}
+          }
+        }
+      ]
+    }
+  ]
+}
