@@ -188,9 +188,7 @@ Supported parameters: `status`, `source`, `counselorId`, `course`, `city`, `keyw
 
 - Reminder Scheduler (Spring @Scheduled) for follow-up alerts
 - Lead Conversion Analytics with time-series data
-- JWT-based Authentication
-- Role-based access (Admin / Counselor)
-- Email/SMS notification integration
+
 
 ---
 
